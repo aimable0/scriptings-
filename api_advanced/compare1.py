@@ -21,13 +21,14 @@ import requests
 
 def number_of_subscribers(subreddit):
     """
-    Fetches the total number of subscribers for a given subreddit.
+    The main function that fetches data
+    and returns total number of subs of a subreddit
 
     Args:
-        subreddit (str): The name of the subreddit to query.
+        subreddit (str): a subreddit name
 
     Returns:
-        int: The total number of subscribers, or 0 if the subreddit is invalid.
+        int: the total number of subscribers of a given subreddit
     """
     url = f"https://reddit.com/r/{subreddit}/about.json"
 
