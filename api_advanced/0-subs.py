@@ -35,5 +35,5 @@ def number_of_subscribers(subreddit):
     try:
         total_subs = response.json()["data"]["subscribers"]
         return total_subs
-    except:
+    except Exception:
         return 0
