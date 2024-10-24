@@ -34,7 +34,7 @@ def number_of_subscribers(subreddit):
 
     try:
         RESPONSE = requests.get(URL, headers=HEADERS, allow_redirects=False)
-        total_subs = RESPONSE.json()["data"]["subscribers"]
-        return total_subs
-    except:
+        subs = RESPONSE.json()["data"]["subscribers"]
+        return subs
+    except Exception:
         return 0
