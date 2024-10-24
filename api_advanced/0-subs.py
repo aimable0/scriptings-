@@ -32,10 +32,9 @@ def number_of_subscribers(subreddit):
     """
     url = f"https://reddit.com/r/{subreddit}/about.json"
 
-    response = requests.get(url)
+    response = requests.get(url, allow_redirects=False)
     try:
-        content = response.json()
-        subs = content["data"]["subscribers"]
-        return subs
+        total_subs = response.json()["data"]["subscribers"]
+        return total_subs
     except:
         return 0
