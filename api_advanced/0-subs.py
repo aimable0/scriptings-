@@ -21,20 +21,20 @@ import requests
 
 def number_of_subscribers(subreddit):
     """
-    Fetches the total number of subscribers for a given subreddit.
+    The main function that fetches data
+    and returns total number of subs of a subreddit
 
     Args:
-        subreddit (str): The name of the subreddit to query.
+        subreddit (str): a subreddit name
 
     Returns:
-        int: The total number of subscribers, or 0 if the subreddit is invalid.
+        int: the total number of subscribers of a given subreddit
     """
-    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    HEADERS = {"User-Agent": "PostmanRuntime/7.35.0"}
+    url = f"https://reddit.com/r/{subreddit}/about.json"
 
+    response = requests.get(url, allow_redirects=False)
     try:
-        RESPONSE = requests.get(URL, headers=HEADERS, allow_redirects=False)
-        subs = RESPONSE.json()["data"]["subscribers"]
-        return subs
-    except Exception:
+        total_subs = response.json()["data"]["subscribers"]
+        return total_subs
+    except:
         return 0
