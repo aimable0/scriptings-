@@ -3,16 +3,14 @@
 0-subs.py
 
 This module queries the Reddit API and returns the number of subscribers
-(not active users, total subscribers)
-for a given subreddit. If an invalid subreddit is given,
-the function should return 0.
-URL: https://reddit.com
+(not active users, total subscribers) for a given subreddit.
+If an invalid subreddit is given, the function returns 0.
 
 Libraries used:
-            - reqeusts
+            - requests
 Returns:
-    on succes: int (total subs)
-    on fail: 0
+    on success: int (total subscribers)
+    on failure: 0
 
 Author: Aimable
 Date: October 2024
