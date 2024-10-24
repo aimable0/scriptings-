@@ -3,23 +3,25 @@
 0-subs.py
 
 This module queries the Reddit API and returns the number of subscribers
+URL: https://reddit.com
 
-
-libraries:
-            - requests
+Libraries:
+        - requests
 
 Returns:
-    _type_: _description_
+    int: total number of subscribers of a given subreddit
 
-author: Aimable
-year: oct / 2024
+Author: Aimable
+Date: oct / 2024
 """
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """_summary_
+    """
+    The main function that fetches data
+    and returns total number of subs of a subreddit
 
     Args:
         d (str): a subreddit
