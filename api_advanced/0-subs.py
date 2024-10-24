@@ -6,12 +6,12 @@ import requests
 
 def number_of_subscribers(subreddit):
     """function that fetches number_of_subscribers"""
-    URL = "https://www.reddit.com/r/{}/about.json".format(subreddit)
+    URL = f"https://www.reddit.com/r/{subreddit}/about.json"
     HEADERS = {"User-Agent": "PostmanRuntime/7.35.0"}
 
     try:
         RESPONSE = requests.get(URL, headers=HEADERS, allow_redirects=False)
-        return RESPONSE.json().get("data").get("subscribers")
+        return RESPONSE.json()["data"]["subscribers"]
 
     except Exception:
         return 0
