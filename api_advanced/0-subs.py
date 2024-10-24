@@ -29,12 +29,11 @@ def number_of_subscribers(subreddit):
     Returns:
         int: The total number of subscribers, or 0 if the subreddit is invalid.
     """
-    url = f"https://reddit.com/r/{subreddit}/about.json"
-    headers = {"user-Agent": "PostmanRuntime/7.35.0"}
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    URL = f"https://reddit.com/r/{subreddit}/about.json"
 
     try:
-        total_subs = response.json()["data"]["subscribers"]
+        RESPONSE = requests.get(URL, allow_redirects=False)
+        total_subs = RESPONSE.json()["data"]["subscribers"]
         return total_subs
-    except Exception:
+    except:
         return 0
