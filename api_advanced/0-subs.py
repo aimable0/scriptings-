@@ -2,17 +2,14 @@
 """
 0-subs.py
 
-This module extracts data from an API and returns the number of subscribers
+This module extracts data from:
 URL: https://reddit.com
 
-Libraries:
-        - requests
-
-Returns:
-    int: total number of subscribers of a given subreddit
+Libraries used:
+            - reqeusts
 
 Author: Aimable
-Date: oct / 2024
+Date: October 2024
 """
 
 import requests
