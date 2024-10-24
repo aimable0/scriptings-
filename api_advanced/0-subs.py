@@ -2,7 +2,7 @@
 """
 0-subs.py
 
-This module queries the Reddit API and returns the number of subscribers
+This module extracts data from an API and returns the number of subscribers
 URL: https://reddit.com
 
 Libraries:
@@ -24,7 +24,7 @@ def number_of_subscribers(subreddit):
     and returns total number of subs of a subreddit
 
     Args:
-        d (str): a subreddit
+        subreddit (str): a subreddit name
 
     Returns:
         int: the total number of subscribers of a given subreddit
