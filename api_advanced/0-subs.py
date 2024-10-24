@@ -29,7 +29,7 @@ def number_of_subscribers(subreddit):
     Returns:
         int: The total number of subscribers, or 0 if the subreddit is invalid.
     """
-    URL = f"https://reddit.com/r/{subreddit}/about.json"
+    URL = f"https://www.reddit.com/r/{subreddit}/about.json"
     HEADERS = {"User-Agent": "PostmanRuntime/7.35.0"}
 
     try:
