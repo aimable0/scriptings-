@@ -22,4 +22,4 @@ def top_ten(subreddit):
             )
             print(title)
     except:
-        print(None)
+        print("OK")
