@@ -11,12 +11,15 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
 
     response = requests.get(url, allow_redirects=False)
-    content = response.json()
-    for i in range(10):
-        title = (
-            content.get("data", {})
-            .get("children", [])[i]
-            .get("data", {})
-            .get("title", "No title")
-        )
-        print(title)
+    try:
+        content = response.json()
+        for i in range(10):
+            title = (
+                content.get("data", {})
+                .get("children", [])[i]
+                .get("data", {})
+                .get("title", "No title")
+            )
+            print(title)
+    except:
+        print(None)
