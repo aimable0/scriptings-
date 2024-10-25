@@ -8,9 +8,10 @@ import requests
 
 
 def top_ten(subreddit):
-    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    headers = {"User-Agent": "Mozilla/5.0"}
+    response = requests.get(url, headers=headers, allow_redirects=False)
 
-    response = requests.get(url, allow_redirects=False)
     try:
         content = response.json()
         for i in range(10):
@@ -21,7 +22,5 @@ def top_ten(subreddit):
                 .get("title", "No title")
             )
             print(title)
-    except ValueError:
-        print("OK")
     except requests.RequestException:
         print("None")
