@@ -21,5 +21,7 @@ def top_ten(subreddit):
                 .get("title", "No title")
             )
             print(title)
+    except ValueError:
+        print("OK")
     except requests.RequestException:
         print("None")
