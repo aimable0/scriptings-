@@ -9,16 +9,27 @@ Return:
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
-    """extracts the titles of the hot posts listed in a subreddit"""
+def recurse(subreddit, hot_list=[], after=None):
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    params = {"limit": "100", "after": after}
+
+    # send the request
+    response = requests.get(url, headers=headers, params=params, allow_redirects=False)
+
+    # check for invalid subreddit
     if response.status_code != 200:
         return None
 
-    response = response.json()
-    posts = response.get("data", {}).get("children", [])
-    for item in posts:
-        hot_list.append(item.get("data", {}).get("title", None))
-    return hot_list
+    posts = response.json().get("data", {}).get("children", [])
+
+    # save the titles to a list
+    for post in posts:
+        hot_list.append(post["data"]["title"])
+
+    after = response.json().get("data", {}).get("after", None)
+
+    if after is not None:
+        return recurse(subreddit, hot_list, after)
+    else:
+        return hot_list
