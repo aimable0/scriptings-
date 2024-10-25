@@ -5,6 +5,9 @@ Description:
     and prints titles of the first 10 article
 """
 import requests
+import rich
+import pathlib
+import json
 
 
 def top_ten(subreddit):
@@ -15,10 +18,7 @@ def top_ten(subreddit):
     if response.status_code != 200:
         print(None)
         return
-    posts = response.json()["data"]["children"]
-    for post in posts:
-        print(post["data"]["title"])
-
-    posts = response.json().get("data", {}).get("children", [])
+    response = response.json()
+    posts = response.get("data", {}).get("children", [])
     for item in posts:
         print(item.get("data", {}).get("title", None))
