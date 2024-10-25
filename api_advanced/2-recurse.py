@@ -1,14 +1,16 @@
 #!/usr/bin/python3
 """
 Description:
-    function that fetched data from a reddit api
-    and prints titles of the first 10 article
+    function that fetches data from a reddit api
+    and stores the titles of the all articles
+Return:
+    list: list of all titles
 """
 import requests
 
 
 def recurse(subreddit, hot_list=[]):
-    """prints the titles of the first 10 hot posts listed in a subreddit"""
+    """extracts the titles of the hot posts listed in a subreddit"""
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {"User-Agent": "Mozilla/5.0"}
     response = requests.get(url, headers=headers, allow_redirects=False)
