@@ -1,5 +1,9 @@
 #!/usr/bin/python3
-""" top_ten.py """
+"""
+Description:
+    function that fetched data from a reddit api
+    and prints titles of the first 10 article
+"""
 import requests
 
 
@@ -14,3 +18,7 @@ def top_ten(subreddit):
     posts = response.json()["data"]["children"]
     for post in posts:
         print(post["data"]["title"])
+
+    posts = response.json().get("data", {}).get("children", [])
+    for item in posts:
+        print(item.get("data", {}).get("title", None))
