@@ -3,38 +3,36 @@
 0-subs.py
 
 This module queries the Reddit API and returns the number of subscribers
-(not active users, total subscribers) for a given subreddit.
-If an invalid subreddit is given, the function returns 0.
 
-Libraries used:
+
+libraries:
             - requests
-Returns:
-    on success: int (total subscribers)
-    on failure: 0
 
-Author: Aimable
-Date: October 2024
+Returns:
+    _type_: _description_
+
+author: Aimable
+year: oct / 2024
 """
 
 import requests
 
 
 def number_of_subscribers(subreddit):
-    """
-    The main function that fetches data
-    and returns total number of subs of a subreddit
+    """_summary_
 
     Args:
-        subreddit (str): a subreddit name
+        d (str): a subreddit
 
     Returns:
         int: the total number of subscribers of a given subreddit
     """
     url = f"https://reddit.com/r/{subreddit}/about.json"
 
-    response = requests.get(url, allow_redirects=False)
+    response = requests.get(url)
     try:
-        total_subs = response.json()["data"]["subscribers"]
-        return total_subs
+        content = response.json()
+        subs = content["data"]["subscribers"]
+        return subs
     except:
         return 0
