@@ -27,7 +27,7 @@ def number_of_subscribers(subreddit):
     Returns:
         int: the total number of subscribers of a given subreddit
     """
-    url = f"https://reddit.com/r/{subreddit}/about.json"
+    url = "https://reddit.com/r/{}/about.json".format(subreddit)
 
     response = requests.get(url)
     try:
