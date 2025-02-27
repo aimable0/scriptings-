@@ -1,2 +1,2 @@
-This repository contains scripts for fetching and formatting data
-from a reddit api.
+This repository contains scripts for fetching and formatting data:
+api: Reddit api
